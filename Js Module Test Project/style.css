@@ -1,0 +1,498 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+/* Global */
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ } 
+body{
+
+    justify-content: center;
+    background-color: #8CC461;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+/* header Scoreboard*/
+.gameContainer header{
+  display: flex;
+  justify-content: space-between;
+  margin: 3% 15%;
+  padding: 2%;
+  border-radius: 10px;
+  border: 2px, solid, white;
+  height: fit-content;
+}
+
+.gameContainer header .game{
+  flex: 1;
+  text-align: left;
+  font-size: xx-large;
+  justify-content: left;
+}
+
+.gameContainer header .game ul{
+  list-style-type: none;
+  height: 100%;
+}
+
+.gameContainer header .scoreBoard{
+  flex: 1;
+  text-align: right;
+  display: flex;
+  justify-content: fix-end;
+  text-align: center;
+  font-size: medium;
+  gap: 20px ;
+  height: 100%;
+}
+
+.gameContainer header .scoreBoard .scores{
+  flex: 1;
+  color: #656565;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;  
+  width: 139px;
+  height: 120px;
+  top: 77px;
+  gap: 0px;
+  border-radius: 9px;
+}
+
+.gameContainer header .scoreBoard .scores .score{
+  flex: 6;
+  display: flex;
+  font-size: 3rem;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.gameContainer header .scoreBoard .scores .text{
+  flex: 4;
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* Main game */
+main{
+  margin: 0 20%;
+  padding: 0;
+}
+
+.triangle-container{
+  width: 60vw;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Screen 1 --- */
+
+.triangle-container .circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.blueCircle, .purpleCircle, .orangeCircle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 50%;
+  border: 16px solid;
+}
+
+.triangle-container .circle .blueCircle{
+  border-color: #0074B6;
+  top: 20px;
+  left: 20px;
+}
+
+.triangle-container .circle .purpleCircle{
+  border-color: #BD00FF;
+  top: 20px;
+  right: 20px;
+}
+
+/* scissors icon is horizontal and i wanted it to be vertical*/ 
+.purpleCircle i{
+  transform: rotate(75deg);
+}
+
+.triangle-container .circle .orangeCircle{
+  border-color: #FFA943;
+  top: 220px;
+  left: 50%;
+  margin-left: -75px;
+}
+
+.circle i{
+  font-size: 3.5rem;
+}
+
+/*conecting lines*/
+.circle::before, .circle::after{
+  content: '';
+  position: absolute;
+  background-color: #000000A3;
+  z-index: -1;
+  height: 20px;
+  width: 300px;
+}
+
+.circle::before{
+  top: 77px;
+  left: 130px;
+}
+
+.circle::after{
+  top: 160px;
+  left: 215px;
+  transform: rotate(-55deg);
+}
+
+/* this should have worked but line was getting above circles probably because of overlapping positions
+   ####Ask about it
+.orangeCircle::before{
+  content: '';
+  position: absolute;
+  background-color: #000000A3;
+  z-index: -1;
+  height: 20px;
+  width: 300px;
+  top: ;
+  left: ; 
+}
+*/
+
+/* added a seperate div for third line*/
+.connectingLine{
+  position: absolute;
+  background-color: #000000A3;
+  width: 300px;
+  height: 20px;
+  transform: rotate(55deg);
+  z-index: -1;
+  top: 200px;
+  left: 0px;
+}
+
+/* hower on hand */
+.hand{
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.hand:hover{
+  transform: translate3d(0px, -8px, 0px);
+}
+
+/* --- Screen 2 --- */
+
+.result{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  margin: auto;
+  margin-top: 0;
+}
+
+.outcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+.result i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border: 20px solid;
+  color: black;
+  font-size: 5rem;
+}
+
+.result h1 {
+  font-size: 1.4rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.result .pickedHand {
+  display: flex;
+  justify-content: center;
+}
+
+.result .outcome .decision {
+  font-size: 2.9rem;
+  color: white;
+}
+
+.result .outcome .decision h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.result .outcome p {
+  font-size: 1.9rem;
+}
+
+.newGame button{
+  background-color: white;
+  width: 174px;
+  height: 44px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #6B6B6B;
+  transition: all 0.25s;
+}
+
+.refresh:hover {
+  background-color: bisque;
+  transform: translate3d(0, -2px,0);
+}
+
+/* css for users pick*/
+#User .fa-hand-back-fist{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #0074B6;
+}
+
+#User .fa-hand-scissors{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #BD00FF;
+  transform: rotate(75deg);
+}
+
+#User .fa-hand{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #FFA943;
+}
+
+/* css for PCs pick*/
+#PC .fa-hand-back-fist{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #0074B6;
+}
+
+#PC .fa-hand-scissors{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #BD00FF;
+  transform: rotate(75deg);
+}
+
+#PC .fa-hand{
+  color: black;
+  visibility: visible;
+  font-size: 4rem;
+  border-color: #FFA943;
+}
+
+.winner .pickedHand {
+  position: relative;
+}
+
+.winner .pickedHand::after{
+  content: ''; 
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 200px; 
+  height: 200px;
+  border-radius: 50%; 
+  box-shadow: 0 0 0 40px #3B6720, 0 0 0 80px #1DA82BC9, 0 0 0 120px #2E9A2563;
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- Screen 3 ---*/
+.celebration-page{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  margin: 100px;
+}
+
+.trophy{
+  background-image: url(Resources/stars.png);
+  width: 600px;
+  height: 300px;
+  align-items: center;
+}
+
+.trophy img{
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hurray{
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.text{
+  font-size: 1.6rem;
+}
+
+
+
+/* Footer */
+footer{
+  text-align: center;
+}
+
+#rules-btn{
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px;    
+  background-color: #8cc461;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: white solid 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#rules-btn:hover{
+  background-color: #8CC491;
+}
+
+#next{
+  display: none;
+  position: fixed; 
+  bottom: 20px; 
+  right: 150px;    
+  background-color: #8cc461;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: white solid 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#next:hover{
+  background-color: #8CC491;
+}
+
+#rules-modal{
+  position: fixed;
+  display: none;
+  bottom: 70px;   
+  right: 20px;     
+  width: 300px;  
+  background-color: #0b4826; 
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  display: none; 
+  z-index: 1000;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.rules-content{
+  align-items: center;
+}
+
+.rules-content h2{
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.rules-content ul{
+  list-style-type: square;
+  padding-left: 20px;
+  line-height: 1.6;
+  text-align: left;
+  font-weight: normal;
+}
+
+#rules-modal ul li::marker {
+  color: #FFD600; 
+  font-size: 1.5rem; 
+}
+
+.rules-content li{
+  margin: 5px, 0;
+}
+
+#close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #f14343;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+#close-btn:hover {
+  background-color: #FF0200;
+}
+
